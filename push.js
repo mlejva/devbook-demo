@@ -17,7 +17,7 @@ function flushMap(map) {
 }
 
 function createCS(body) {
-  return fetch('http://localhost:3000/api/code', {
+  return fetch('https://dashboard-devbook.vercel.app/api/code', {
     method: 'PUT',
     body: JSON.stringify(body),
     headers: {'Content-Type': 'application/json'}
@@ -26,7 +26,7 @@ function createCS(body) {
   .then(data => data.id)
 }
 function updateCS(body) {
-  return fetch('http://localhost:3000/api/code', {
+  return fetch('https://dashboard-devbook.vercel.app/api/code', {
     method: 'POST',
     body: JSON.stringify(body),
     headers: {'Content-Type': 'application/json'}
@@ -92,67 +92,7 @@ async function main() {
 
   console.log('=======================================')
 
-
   flushMap(map)
 }
 
 main()
-
-
-function create(title, code, env) {
-  const body = {
-    apiKey,
-    env,
-    isPublished: true,
-    codeSnippet: {
-      code,
-      title: 'Apollo Server',
-    },
-  }
-  fetch('http://localhost:3000/api/code', {
-    method: 'POST',
-    body: JSON.stringify(body),
-    headers: {'Content-Type': 'application/json'}
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('response', data)
-  })
-}
-
-//fs.readdirSync('./code-snippets').forEach(file => {
-//  const p = `./code-snippets/${file}`
-//  const content = fs.readFileSync(p, 'utf-8')
-//  console.log(content)
-//
-//  const env = {
-//    template: 'Nodejs',
-//    deps: ['apollo-server'],
-//  }
-//  create('Apollo Server', content, env)
-//});
-
-//const code = ``
-//
-//const body = {
-//  apiKey: '06e53e1b7052b89b85dcd17f855bec31',
-//  isPublished: true,
-//  codeSnippet: {
-//    code,
-//    title: 'Apollo Server',
-//  },
-//  env: {
-//    template: 'Nodejs',
-//    deps: ['apollo-server'],
-//  },
-//};
-//
-//fetch('http://localhost:3000/api/code', {
-//	method: 'POST',
-//	body: JSON.stringify(body),
-//	headers: {'Content-Type': 'application/json'}
-//})
-//.then(response => response.json())
-//.then(data => {
-//  console.log('response', data)
-//})
