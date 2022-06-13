@@ -2,6 +2,7 @@ import fetch from 'node-fetch'
 import fs from 'fs'
 import path from 'path'
 
+const apiKey = process.env.DBK_API_KEY
 const csDir = 'code-snippets'
 const mapFile = path.join(csDir, 'map.json')
 
@@ -33,7 +34,7 @@ function updateCS(body) {
 }
 
 async function main() {
-  const { apiKey, codeSnippets } = map
+  const { codeSnippets } = map
   const promises = []
   codeSnippets.forEach(cs => {
     const csFile = path.join(csDir, cs.file)

@@ -1,0 +1,14 @@
+
+name: code-snippets
+on: [push]
+jobs:
+  push-code-snippets:
+    runs-on: ubuntu-latest
+    env:
+      DBK_API_KEY: ${{ secrets.DBK_API_KEY }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: node push.js
