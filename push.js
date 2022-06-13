@@ -3,6 +3,8 @@ import fs from 'fs'
 import path from 'path'
 
 const apiKey = process.env.DBK_API_KEY
+if (!apiKey) throw new Error('Env var "DBK_API_KEY" is empty')
+
 const csDir = 'code-snippets'
 const mapFile = path.join(csDir, 'map.json')
 
