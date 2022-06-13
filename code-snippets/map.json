@@ -1,0 +1,11 @@
+{
+  "apiKey": "06e53e1b7052b89b85dcd17f855bec31",
+  "codeSnippets": [
+    {
+      "file": "./apollo.js",
+      "title": "Apollo Server",
+      "isPublished": true,
+      "env": { "template": "Nodejs", "deps": ["apollo-server"] }
+    }
+  ]
+}
